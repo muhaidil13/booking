@@ -3,21 +3,10 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/muhaidil13/web-golang/pkg/config"
-	"github.com/muhaidil13/web-golang/pkg/render"
+	"github.com/muhaidil13/booking/pkg/config"
+	"github.com/muhaidil13/booking/pkg/model"
+	"github.com/muhaidil13/booking/pkg/render"
 )
-
-// send data Tamplate
-type TemplateData struct {
-	Stringmap map[string]string
-	IntMap    map[string]int
-	FloatMap  map[string]float32
-	Datamap   map[string]interface{}
-	CSRFToken string
-	Flash     string
-	Warning   string
-	Error     string
-}
 
 // repo use by handler
 var Repo *Repository
@@ -40,5 +29,10 @@ func NewHandler(r *Repository) {
 }
 
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderFile(w, "home.page.html", &TemplateData)
+	StringMap := make(map[string]string)
+	StringMap["users"] = "hello users"
+	StringMap["test"] = "hello user"
+	render.RenderFile(w, "home.page.html", &model.TemplateData{
+		StringMap: StringMap,
+	})
 }

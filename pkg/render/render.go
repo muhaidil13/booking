@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/muhaidil13/web-golang/pkg/config"
-	"github.com/muhaidil13/web-golang/pkg/handlers"
+	"github.com/muhaidil13/booking/pkg/config"
+	"github.com/muhaidil13/booking/pkg/model"
 )
 
 var app *config.Appconfig
@@ -21,7 +21,11 @@ func NewTemplate(e *config.Appconfig) {
 	app = e
 }
 
-func RenderFile(w http.ResponseWriter, form string, td *handlers.TemplateData) {
+func AddDefaultData(e *model.TemplateData) *model.TemplateData {
+	return e
+}
+
+func RenderFile(w http.ResponseWriter, form string, data *model.TemplateData) {
 
 	// Development Mode
 	var rt map[string]*template.Template
@@ -37,7 +41,12 @@ func RenderFile(w http.ResponseWriter, form string, td *handlers.TemplateData) {
 		log.Fatal("Tidak terdapat data")
 	}
 	buf := new(bytes.Buffer)
-	_ = t.Execute(buf, nil)
+
+	data = AddDefaultData(data)
+
+	// Exekusi dan Melempar data
+	_ = t.Execute(buf, data)
+
 	_, err := buf.WriteTo(w)
 	if err != nil {
 		fmt.Println("Terdapat error saat menulis", err)
