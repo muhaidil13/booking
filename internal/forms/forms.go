@@ -2,7 +2,6 @@ package forms
 
 import (
 	"fmt"
-	"net/http"
 	"net/url"
 	"strings"
 
@@ -34,8 +33,8 @@ func New(data url.Values) *Form {
 
 // Has Is Check Error Bagus digunakan pada checkbox radio button dll yang single karna
 // parameternya bukan array atau veradic parameter
-func (f *Form) Has(filed string, r *http.Request) bool {
-	x := r.Form.Get(filed)
+func (f *Form) Has(filed string) bool {
+	x := f.Get(filed)
 	if x == "" {
 		f.Errors.Add(filed, "Tolong Isi Fieldnya dengan benar")
 		return false
@@ -47,8 +46,8 @@ func (f *Form) Valid() bool {
 	return len(f.Errors) == 0
 }
 
-func (f *Form) MinLength(field string, length int, r *http.Request) bool {
-	x := r.Form.Get(field)
+func (f *Form) MinLength(field string, length int) bool {
+	x := f.Get(field)
 	if len(x) < length {
 		f.Errors.Add(field, fmt.Sprintf("This Field Must at Least %d character long", length))
 		return false

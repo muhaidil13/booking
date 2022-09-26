@@ -1,0 +1,18 @@
+mode: set
+github.com/muhaidil13/booking/internal/forms/errors.go:6.44,8.2 1 1
+github.com/muhaidil13/booking/internal/forms/errors.go:11.42,13.18 2 1
+github.com/muhaidil13/booking/internal/forms/errors.go:16.2,16.14 1 1
+github.com/muhaidil13/booking/internal/forms/errors.go:13.18,15.3 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:17.42,18.26 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:18.26,20.37 2 1
+github.com/muhaidil13/booking/internal/forms/forms.go:20.37,22.4 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:27.33,32.2 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:36.39,38.13 2 1
+github.com/muhaidil13/booking/internal/forms/forms.go:42.2,42.13 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:38.13,41.3 2 1
+github.com/muhaidil13/booking/internal/forms/forms.go:45.29,47.2 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:49.57,51.21 2 1
+github.com/muhaidil13/booking/internal/forms/forms.go:55.2,55.13 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:51.21,54.3 2 1
+github.com/muhaidil13/booking/internal/forms/forms.go:59.38,60.40 1 1
+github.com/muhaidil13/booking/internal/forms/forms.go:60.40,62.3 1 1

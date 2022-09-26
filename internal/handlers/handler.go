@@ -80,7 +80,7 @@ func (m *Repository) PostMake_Reservation(w http.ResponseWriter, r *http.Request
 	form := forms.New(r.PostForm)
 	// form.Has("nama_pertama", r)
 	form.Required("nama_pertama", "nama_belakang", "email", "phone")
-	form.MinLength("nama_pertama", 5, r)
+	form.MinLength("nama_pertama", 5)
 	form.IsEmail("email")
 	if !form.Valid() {
 		data := make(map[string]interface{})
@@ -98,8 +98,8 @@ func (m *Repository) PostMake_Reservation(w http.ResponseWriter, r *http.Request
 
 // handler request post
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
-	start := r.Form.Get("start-date1")
-	end := r.Form.Get("end-date1")
+	start := r.Form.Get("start-dates")
+	end := r.Form.Get("end-dates")
 	w.Write([]byte(fmt.Sprintf("Start %v, end is %v", start, end)))
 }
 
