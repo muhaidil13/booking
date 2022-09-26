@@ -1,0 +1,80 @@
+{{template "base" .}}
+{{define "content"}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="static/image/marjors-suite.png" class="img-fluid d-block mx-auto room-image rounded-2" alt="...">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+                <h2 class="text-center">Ruangan vip</h2>
+                <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod, sed. Eligendi repudiandae voluptatum dolore suscipit beatae quas officia, architecto, deserunt in aspernatur consectetur tempore quam commodi quae maiores soluta nihil. console.log('');</p>
+                <button class="btn btn-info" id="make-reservation">Check Reservation</button>
+        </div>
+    </div>
+  </div>
+{{end}}
+{{define "js"}}
+<script>
+  let atention = Promt()
+    var btn_reser = document.getElementById("make-reservation")
+    btn_reser.addEventListener("click",()=>{
+    let html = `
+            <form action="" method="post" id="check-availability-form" novalidate class="needs-validation">
+              <div class="row" id="reservation-date-modal">
+                <div class="col mb-4">
+                  <input type="text" disabled class="form-control" required name="start-dat" id="start-date1" placeholder="start" autocomplete="off">
+                </div>
+                <div class="col mb-4">
+                  <input type="text" disabled class="form-control" required name="end-dat" id="end-date1" placeholder="departure" autocomplete="off">
+                </div>
+              </div>
+            </form>
+            `
+
+            // notifysweet('Hello World','error','Someting went wrong')
+            // atention.toast({msg: "hello world", icon:"error"})
+            // atention.success({msg: "hello world"})
+            atention.costume({
+              msg:html, 
+              title:"Chose your date ",
+              willOpen:()=>{
+                const start = document.getElementById("start-date1")
+                const end = document.getElementById("end-date1")
+                const rp = new Datepicker(start,{
+                  showOnFocus:true
+                })
+                const rp1 = new Datepicker(end,{
+                  showOnFocus:true
+                })
+              },
+              didOpen:()=>{
+                document.getElementById('start-date1').removeAttribute("disabled")
+                document.getElementById('end-date1').removeAttribute("disabled")
+              },
+              callback:function(result){
+
+                let form = document.getElementById("check-availability-form")
+                // contain all data form 
+                let formData = new FormData(form)
+                // Ambil dari backend Golang
+                formData.append("csrf_token","{{.CSRFToken}}")
+
+                fetch("/reservation-json",{
+                  method:"post",
+                  body: formData,
+                })
+                .then(Response => Response.json())
+                .then(data =>{
+                  console.log(data)
+                  console.log(data.Status)
+                  console.log(data.Message)
+                })
+              }
+            })
+
+          })
+
+</script>
+{{end}}

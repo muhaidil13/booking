@@ -1,0 +1,12 @@
+mode: set
+github.com/muhaidil13/booking/web/main.go:22.13,24.16 2 0
+github.com/muhaidil13/booking/web/main.go:29.2,37.16 4 0
+github.com/muhaidil13/booking/web/main.go:24.16,26.3 1 0
+github.com/muhaidil13/booking/web/main.go:40.18,56.16 10 1
+github.com/muhaidil13/booking/web/main.go:62.2,71.12 6 1
+github.com/muhaidil13/booking/web/main.go:56.16,59.3 2 0
+github.com/muhaidil13/booking/web/middleware.go:10.53,11.71 1 0
+github.com/muhaidil13/booking/web/middleware.go:11.71,14.3 2 0
+github.com/muhaidil13/booking/web/middleware.go:17.45,26.2 3 1
+github.com/muhaidil13/booking/web/middleware.go:28.50,30.2 1 1
+github.com/muhaidil13/booking/web/routes.go:12.49,35.2 18 1

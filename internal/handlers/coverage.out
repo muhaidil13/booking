@@ -1,0 +1,22 @@
+mode: set
+github.com/muhaidil13/booking/internal/handlers/handler.go:24.47,28.2 1 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:31.32,33.2 1 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:36.67,43.2 4 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:44.68,46.2 1 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:47.70,49.2 1 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:50.67,52.2 1 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:53.73,55.2 1 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:56.74,58.2 1 0
+github.com/muhaidil13/booking/internal/handlers/handler.go:59.79,67.2 4 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:68.83,70.16 2 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:74.2,85.19 6 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:94.2,95.65 2 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:70.16,73.3 2 0
+github.com/muhaidil13/booking/internal/handlers/handler.go:85.19,93.3 4 0
+github.com/muhaidil13/booking/internal/handlers/handler.go:100.78,104.2 3 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:112.79,118.16 3 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:121.2,122.16 2 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:118.16,120.3 1 0
+github.com/muhaidil13/booking/internal/handlers/handler.go:126.81,128.9 2 1
+github.com/muhaidil13/booking/internal/handlers/handler.go:135.2,139.4 3 0
+github.com/muhaidil13/booking/internal/handlers/handler.go:128.9,133.3 4 1
