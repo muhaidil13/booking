@@ -3,11 +3,11 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/muhaidil13/booking/internal/config"
 	"github.com/muhaidil13/booking/internal/forms"
+	"github.com/muhaidil13/booking/internal/helpers"
 	"github.com/muhaidil13/booking/internal/model"
 	"github.com/muhaidil13/booking/internal/render"
 )
@@ -68,7 +68,8 @@ func (m *Repository) Make_Reservation(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) PostMake_Reservation(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
-		log.Println(err)
+		// Logging Handing error
+		helpers.ServerError(w, err)
 		return
 	}
 	reservation := model.Reservation{
@@ -116,7 +117,8 @@ func (m *Repository) AvailabilityJson(w http.ResponseWriter, r *http.Request) {
 	}
 	valby, err := json.MarshalIndent(resp, "", "     ")
 	if err != nil {
-		log.Println(err)
+		helpers.ServerError(w, err)
+		return
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(valby)
@@ -126,7 +128,7 @@ func (m *Repository) AvailabilityJson(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) {
 	reservation, ok := m.App.Session.Get(r.Context(), "reservation").(model.Reservation)
 	if !ok {
-		log.Println("Cant Get Any Data Form Session")
+		m.App.ErrorLog.Println("Cant Get Session form session")
 		m.App.Session.Put(r.Context(), "error", "Cant Get Reservation on Session")
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return

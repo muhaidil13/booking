@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 	"text/template"
 	"time"
@@ -30,6 +31,12 @@ func getRoute() http.Handler {
 
 	// Ganti ini jika diproducttion
 	App.InProduct = true
+
+	// Menulis error pada terminal
+	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	App.InfoLog = infoLog
+	errorLog := log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.LstdFlags)
+	App.ErrorLog = errorLog
 
 	session = scs.New()
 	session.Lifetime = 10 * time.Hour

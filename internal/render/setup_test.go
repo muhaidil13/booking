@@ -2,6 +2,7 @@ package render
 
 import (
 	"encoding/gob"
+	"log"
 	"net/http"
 	"os"
 	"testing"
@@ -21,6 +22,12 @@ func TestMain(m *testing.M) {
 
 	// Ganti ini jika diproducttion
 	appTest.InProduct = false
+
+	// Menulis error pada terminal
+	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	appTest.InfoLog = infoLog
+	errorLog := log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.LstdFlags)
+	appTest.ErrorLog = errorLog
 
 	session = scs.New()
 	session.Lifetime = 10 * time.Hour
